@@ -1,0 +1,18 @@
+#to run temp container and craete new creds for DB
+docker run -it --rm --name temp-mongo --user root papetua/mongo:v2.0.0 mongod --noauth
+docker exec -it temp-mongo mongo
+use yolomy
+db.createUser(
+  {
+    user: "narina",
+    pwd: "sa12345%",
+    roles: [ { role: "readWrite", db: "yolomy" } ]
+  }
+)
+
+
+#Ownership
+sudo chown -R 999:999 /var/lib/docker/volumes/yolo_mongo_data/_data
+
+ environment:
+      - MONGODB_URI=mongodb://narina:sa12345%25@mongo:27017/yolomy?authSource=admin
