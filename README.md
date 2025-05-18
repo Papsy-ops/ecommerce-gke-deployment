@@ -43,15 +43,16 @@ Access the running application here:
 
 1. **Clone the Repository**  
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/Papsy-ops/ecommerce-gke-deployment.git
    cd ecommerce-gke-deployment
    ```
 
 2. **Build and Push Docker Images**  
    Ensure your Docker images are tagged and pushed to Docker Hub.  
+   #Treating mongo image as static... : papetua/mongo:v2.0.0 (more information : https://github.com/Papsy-ops/yolo.git)
    ```bash
-   docker build -t your-dockerhub-username/frontend:v1.0.0 ./frontend
-   docker build -t your-dockerhub-username/backend:v1.0.0 ./backend
+   docker build -t your-dockerhub-username/frontend:v1.0.0 ./frontend #from client context
+   docker build -t your-dockerhub-username/backend:v1.0.0 ./backend #from backend context
    docker push your-dockerhub-username/frontend:v1.0.0
    docker push your-dockerhub-username/backend:v1.0.0
    ```
@@ -115,4 +116,4 @@ This project is licensed under the MIT License.
 
 ## Author
 
-Papetua
+Papetua Narina
