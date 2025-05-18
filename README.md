@@ -19,17 +19,41 @@ Access the running application here:
 
 ```
 .
-├── explanation.md           # Explanation of design choices and Kubernetes objects
-├── README.md                # Project overview and instructions
-└── k8s-manifests            # Kubernetes manifests folder
-    ├── backend-deployment.yaml
-    ├── backend-service.yaml
-    ├── frontend-configmap.yaml
-    ├── frontend-deployment.yaml
-    ├── frontend-service.yaml
-    ├── ingress.yaml
-    ├── mongo-service.yaml
-    └── mongo-statefulset.yaml
+├── backend/                 # Backend application (Node.js API)
+│   ├── commands.txt         # Notes or scripts used during development
+│   ├── Dockerfile           # Docker build instructions for the backend
+│   ├── models/              # Mongoose models for MongoDB
+│   ├── node_modules/        # Installed backend dependencies
+│   ├── package.json         # Backend dependencies and scripts
+│   ├── package-lock.json    # Lock file for exact versions
+│   ├── routes/              # API route handlers
+│   ├── server.js            # Main backend server entry point
+│   └── upload.js            # Handles file uploads
+│
+├── client/                  # Frontend application (React)
+│   ├── Dockerfile           # Docker build instructions for the frontend
+│   ├── entrypoint.sh        # Custom startup script
+│   ├── env-config.js.template # Environment config template
+│   ├── node_modules/        # Installed frontend dependencies
+│   ├── package.json         # Frontend dependencies and scripts
+│   ├── package-lock.json    # Lock file for exact versions
+│   ├── public/              # Static assets
+│   ├── README.md            # React project readme (optional)
+│   └── src/                 # Source code (JSX, CSS, etc.)
+│
+├── k8s-manifests/           # Kubernetes configuration files
+│   ├── backend-deployment.yaml
+│   ├── backend-service.yaml
+│   ├── frontend-configmap.yaml
+│   ├── frontend-deployment.yaml
+│   ├── frontend-service.yaml
+│   ├── ingress.yaml
+│   ├── mongo-service.yaml
+│   └── mongo-statefulset.yaml
+│
+├── explanation.md           # Technical rationale and implementation notes
+└── README.md                # Main project readme for deployment instructions
+
 ```
 
 ## Prerequisites
