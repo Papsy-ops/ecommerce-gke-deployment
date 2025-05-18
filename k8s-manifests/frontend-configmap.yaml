@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: frontend-env
+data:
+  env-config.js: |
+    window._env_ = {
+      API_BASE_URL: "http://104.199.35.210/api"
+    }

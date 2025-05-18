@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  labels:
+    app: frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: papetua/yolo_frontend:v3.0.3
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: env-config-volume
+          mountPath: /usr/share/nginx/html/env-config.js
+          subPath: env-config.js
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "50m"
+          limits:
+            memory: "128Mi"
+            cpu: "100m"
+      volumes:
+      - name: env-config-volume
+        configMap:
+          name: frontend-env
